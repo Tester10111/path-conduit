@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Path Conduit</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="desk">
+  <div class="note" role="application" aria-label="Path Conduit">
+    <div class="tape" aria-hidden="true"></div>
+    <header class="titlebar" data-tauri-drag-region>
+      <div class="brand" data-tauri-drag-region>Path Conduit</div>
+      <div class="win-btns">
+        <button type="button" id="helpBtn" title="Shortcuts" aria-label="Keyboard shortcuts">?</button>
+        <button type="button" class="pin app-only" id="pinBtn" title="Always on top" aria-label="Always on top" aria-pressed="false">📌</button>
+        <button type="button" class="app-only" id="minBtn" title="Minimize" aria-label="Minimize">–</button>
+        <button type="button" class="close app-only" id="closeBtn" title="Close" aria-label="Close">✕</button>
+      </div>
+    </header>
+    <p class="privacy">Nothing is saved. Closing clears everything.</p>
+    <div class="body">
+      <div class="toolbar" id="toolbar" hidden>
+        <div class="row">
+          <span class="meta" id="fileLabel"></span>
+        </div>
+        <div class="row search">
+          <span class="ico" aria-hidden="true">⌕</span>
+          <input type="search" id="q" placeholder="Filter path or A0X" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="row actions">
+          <button type="button" class="btn" id="openBtn">Open</button>
+          <button type="button" class="btn" id="showNewBtn" hidden>Show new only</button>
+          <button type="button" class="btn" id="hideDoneBtn">Hide done</button>
+          <button type="button" class="btn" id="markSeenBtn" hidden>Mark all as seen</button>
+          <button type="button" class="btn" id="clearBtn">Clear</button>
+          <div class="menu">
+            <button type="button" class="btn" id="exportBtn">Export</button>
+            <div class="menu-list" id="exportMenu" hidden>
+              <button type="button" id="exportCsv">Download CSV</button>
+              <button type="button" id="exportCopy">Copy table</button>
+              <button type="button" id="exportPrint">Print</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll" id="workspace"></div>
+    </div>
+    <div class="fold" aria-hidden="true"></div>
+    <div id="toast" role="status"></div>
+    <div id="overlay">Drop to open</div>
+    <div id="help">
+      <div class="sheet">
+        <div class="hd"><h2>Shortcuts</h2><button type="button" class="btn" id="helpClose">Close</button></div>
+        <ul>
+          <li><span>Open file</span><kbd>O</kbd></li>
+          <li><span>Filter</span><kbd>/</kbd></li>
+          <li><span>Move</span><span><kbd>J</kbd> <kbd>K</kbd></span></li>
+          <li><span>Toggle check</span><kbd>X</kbd></li>
+          <li><span>Shortcuts</span><kbd>?</kbd></li>
+        </ul>
+        <p class="meta" style="margin-top:10px">Nothing is saved. Closing clears everything. CSV and print only run when you ask.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<input type="file" id="fileInput" accept=".xml,text/xml,application/xml" hidden>
+<script src="extract.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
